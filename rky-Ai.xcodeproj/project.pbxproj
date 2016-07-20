@@ -13,6 +13,8 @@
 		07DD43251D3AA931002C42E1 /* rky_Ai.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07DD43231D3AA931002C42E1 /* rky_Ai.xcdatamodeld */; };
 		07DD43271D3AA931002C42E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07DD43261D3AA931002C42E1 /* Assets.xcassets */; };
 		07DD432A1D3AA931002C42E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DD43281D3AA931002C42E1 /* LaunchScreen.storyboard */; };
+		07DD43321D3AA965002C42E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DD43311D3AA965002C42E1 /* MapKit.framework */; };
+		07DD43341D3AB4FE002C42E1 /* Fonctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD43331D3AB4FE002C42E1 /* Fonctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		07DD43261D3AA931002C42E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07DD43291D3AA931002C42E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07DD432B1D3AA931002C42E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07DD43311D3AA965002C42E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		07DD43331D3AB4FE002C42E1 /* Fonctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DD43321D3AA965002C42E1 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,7 @@
 		07DD43101D3AA931002C42E1 = {
 			isa = PBXGroup;
 			children = (
+				07DD43311D3AA965002C42E1 /* MapKit.framework */,
 				07DD431B1D3AA931002C42E1 /* rky-Ai */,
 				07DD431A1D3AA931002C42E1 /* Products */,
 			);
@@ -57,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				07DD431C1D3AA931002C42E1 /* AppDelegate.swift */,
+				07DD43331D3AB4FE002C42E1 /* Fonctions.swift */,
 				07DD431E1D3AA931002C42E1 /* ViewController.swift */,
 				07DD43201D3AA931002C42E1 /* Main.storyboard */,
 				07DD43261D3AA931002C42E1 /* Assets.xcassets */,
@@ -99,6 +106,12 @@
 				TargetAttributes = {
 					07DD43181D3AA931002C42E1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9353G536C2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -139,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07DD43251D3AA931002C42E1 /* rky_Ai.xcdatamodeld in Sources */,
+				07DD43341D3AB4FE002C42E1 /* Fonctions.swift in Sources */,
 				07DD431F1D3AA931002C42E1 /* ViewController.swift in Sources */,
 				07DD431D1D3AA931002C42E1 /* AppDelegate.swift in Sources */,
 			);
@@ -253,9 +267,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "rky-Ai/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "eCoucou.dev.rky-Ai";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.e-Coucou.dev.rky-Ai";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -264,9 +279,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "rky-Ai/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "eCoucou.dev.rky-Ai";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.e-Coucou.dev.rky-Ai";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -290,6 +306,7 @@
 				07DD43301D3AA931002C42E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
