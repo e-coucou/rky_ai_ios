@@ -109,7 +109,7 @@ func create_userId() {
     task.resume()
 }
 //fonction create UserId : fonction unique à la première ouverture de l'appli
-func update_userId() {
+func update_userId(etat:String) {
     
     let baseURL:String = "https://rkyai.herokuapp.com/api/v1/map/"+userId
     let url: NSURL = NSURL(string: baseURL)!
@@ -117,7 +117,7 @@ func update_userId() {
     let request1: NSMutableURLRequest = NSMutableURLRequest(URL: url)
     
     request1.HTTPMethod = "PUT"
-    let paramString = "{\"latitude\":\""+String(loc_latitude)+"\", \"longitude\":\""+String(loc_longitude)+"\", \"etat\":\"safe\",\"type\":\"user\"}"
+    let paramString = "{\"latitude\":\""+String(loc_latitude)+"\", \"longitude\":\""+String(loc_longitude)+"\", \"etat\":\""+etat+"\",\"type\":\"user\"}"
     print(paramString)
     print(baseURL)
     request1.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)

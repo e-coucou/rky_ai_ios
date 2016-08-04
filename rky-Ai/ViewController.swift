@@ -19,10 +19,24 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             regionRadius = 1000
             centerMapOnLocation(CLLocation(latitude: loc_latitude, longitude: loc_longitude))
         case 1:
+            regionRadius=100000
             get_userId()
+        case 2:
+            regionRadius=5000
+            update_userId("safe")
+        case 3:
+            regionRadius=5000
+            update_userId("unsafe")
+        case 4:
+            regionRadius=5000
+            update_userId("alerte")
+        case 5:
+            regionRadius=5000
+            update_userId("terror")
         default:
             print("no button")
         }
+        get_userId()
     }
 
     let locationManager = CLLocationManager()
@@ -105,7 +119,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             first = false
             create_userId()
         } else {
-            update_userId()
+            update_userId("safe")
         }
         //stop updating location to save battery life
 //        locationManager.stopUpdatingLocation()
@@ -161,19 +175,37 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 print(error.localizedDescription)
             }
             dispatch_async(dispatch_get_main_queue(), {
-                for item in data_loc {
-                    color_ligne = UIColor.redColor()
-                    color_fond = UIColor.redColor().colorWithAlphaComponent(0.1)
-                    self.drawZone(item.latitude, longitude: item.longitude, radius: 1000, etat: item.etat)
-                }
-                regionRadius=100000
-                self.centerMapOnLocation(CLLocation(latitude: loc_latitude, longitude: loc_longitude))
-                self.locationManager.stopUpdatingLocation()
+                self.drawZone()
                 return
             })
 //        })
         }
         task.resume()
+    }
+    
+    func drawZone() {
+        for item in data_loc {
+            switch item.etat {
+            case "safe":
+                color_ligne = UIColor.greenColor()
+                color_fond = UIColor.greenColor().colorWithAlphaComponent(0.1)
+            case "unsafe":
+                color_ligne = UIColor.yellowColor()
+                color_fond = UIColor.yellowColor().colorWithAlphaComponent(0.1)
+            case "alerte":
+                color_ligne = UIColor.redColor()
+                color_fond = UIColor.redColor().colorWithAlphaComponent(0.1)
+            case "terror":
+                color_ligne = UIColor.blackColor()
+                color_fond = UIColor.blackColor().colorWithAlphaComponent(0.1)
+            default:
+                color_ligne = UIColor.grayColor()
+                color_fond = UIColor.grayColor().colorWithAlphaComponent(0.1)
+            }
+            self.drawZone(item.latitude, longitude: item.longitude, radius: 1000, etat: item.etat)
+        }
+        self.centerMapOnLocation(CLLocation(latitude: loc_latitude, longitude: loc_longitude))
+        self.locationManager.stopUpdatingLocation()
     }
 }
 // VC extension

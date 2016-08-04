@@ -41,16 +41,6 @@ import UIKit
         //set the path's line width to the height of the stroke
         plusPath.lineWidth = plusHeight
         
-        //move the initial point of the path
-        //to the start of the horizontal stroke
-        plusPath.moveToPoint(CGPoint(
-            x:bounds.width/2 - plusWidth/2,
-            y:bounds.height/2))
-        
-        //add a point to the path at the end of the stroke
-        plusPath.addLineToPoint(CGPoint(
-            x:bounds.width/2 + plusWidth/2,
-            y:bounds.height/2))
         
         switch numButton {
         case 0:
@@ -60,6 +50,27 @@ import UIKit
             centerpath.stroke()
             centerpath.fill()
         case 1:
+            let drect = CGRect(x: (w * 0.35),y: (h * 0.35),width: (w * 0.3),height: (h * 0.3))
+            let circle0path = UIBezierPath(ovalInRect: drect)
+            let circle1path = UIBezierPath(ovalInRect: CGRect(x: (w * 0.15),y: (h * 0.15),width: (w * 0.7),height: (h * 0.7)))
+            let circle2path = UIBezierPath(ovalInRect: CGRect(x: (w * 0.25),y: (h * 0.25),width: (w * 0.5),height: (h * 0.5)))
+            color.set()
+            circle0path.stroke()
+            circle1path.stroke()
+            circle2path.stroke()
+//            centerpath.fill()
+        case 2,3,4,5:
+            // horizontal line
+            //move the initial point of the path
+            //to the start of the horizontal stroke
+            plusPath.moveToPoint(CGPoint(
+                x:bounds.width/2 - plusWidth/2,
+                y:bounds.height/2))
+            
+            //add a point to the path at the end of the stroke
+            plusPath.addLineToPoint(CGPoint(
+                x:bounds.width/2 + plusWidth/2,
+                y:bounds.height/2))
             //Vertical Line
             //move to the start of the vertical stroke
             plusPath.moveToPoint(CGPoint(
