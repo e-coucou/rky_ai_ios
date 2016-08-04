@@ -41,6 +41,10 @@
 		<string>MKDirectionsModePedestrian</string>
 		<string>MKDirectionsModeTaxi</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Autorisez la localisation du téléphone (pas d'historisation)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Autorisez la localisation de votre téléphone</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
