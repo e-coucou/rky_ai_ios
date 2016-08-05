@@ -13,6 +13,15 @@ import CoreData
 
 class ViewController: UIViewController,CLLocationManagerDelegate {
     
+    @IBOutlet weak var maps: MKMapView!
+    @IBOutlet weak var info_text: UILabel!
+
+    let locationManager = CLLocationManager()
+
+    @IBAction func change_pseudo(sender: AnyObject) {
+        update_userId("safe")
+    }
+    
     @IBAction func back_origine(button: actionButton) {
         switch button.numButton {
         case 0:
@@ -39,10 +48,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         get_userId()
     }
 
-    let locationManager = CLLocationManager()
-    
-    @IBOutlet weak var maps: MKMapView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         maps.delegate = self
@@ -57,9 +62,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest //kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
+
         // Do any additional setup after loading the view, typically from a nib.
-//        centerMapOnLocation(initialLocation)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,7 +95,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
             print("no credentials")
         }
 //        self.userId.text = userId
-//        self.pseudo.text = pseudo
+        self.info_text.text = pseudo
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -143,13 +148,14 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         new_data = LocData()
         
         let baseURL:String = "https://rkyai.herokuapp.com/api/v1/search?user=*&record=map&etat=*"
-        //"https://rkyai.herokuapp.com/api/v1/liste/user"
         let url: NSURL = NSURL(string: baseURL)!
         print(baseURL)
         
         let request1: NSMutableURLRequest = NSMutableURLRequest(URL: url)
         let formatter = NSNumberFormatter()
         formatter.decimalSeparator = "."
+        
+        info_text.text = "Waiting for data"
         
         request1.HTTPMethod = "GET"
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request1){ data, response, error in
@@ -164,7 +170,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                         new_data.etat = item["etat"] as! String
                         new_data.latitude = Double(formatter.numberFromString(item["latitude"] as! String)!)
                         new_data.longitude = Double(formatter.numberFromString(item["longitude"] as! String)!)
-                        new_data.userId=item["userId"] as! String
+//                        new_data.userId=item["userId"] as! String
                         data_loc.append(new_data)
                     }
                 }
@@ -175,7 +181,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 print(error.localizedDescription)
             }
             dispatch_async(dispatch_get_main_queue(), {
-                self.drawZone()
+                self.drawZoneAll()
+                self.info_text.text = pseudo
                 return
             })
 //        })
@@ -183,7 +190,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
         task.resume()
     }
     
-    func drawZone() {
+    func drawZoneAll() {
         for item in data_loc {
             switch item.etat {
             case "safe":
@@ -202,7 +209,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                 color_ligne = UIColor.grayColor()
                 color_fond = UIColor.grayColor().colorWithAlphaComponent(0.1)
             }
-            self.drawZone(item.latitude, longitude: item.longitude, radius: 1000, etat: item.etat)
+            self.drawZone(item.latitude, longitude: item.longitude, radius: a_zone, etat: item.etat)
         }
         self.centerMapOnLocation(CLLocation(latitude: loc_latitude, longitude: loc_longitude))
         self.locationManager.stopUpdatingLocation()

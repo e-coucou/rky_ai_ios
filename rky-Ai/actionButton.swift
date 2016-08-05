@@ -50,14 +50,20 @@ import UIKit
             centerpath.stroke()
             centerpath.fill()
         case 1:
-            let drect = CGRect(x: (w * 0.35),y: (h * 0.35),width: (w * 0.3),height: (h * 0.3))
-            let circle0path = UIBezierPath(ovalInRect: drect)
+            let circle0path = UIBezierPath(ovalInRect: CGRect(x: (w * 0.35),y: (h * 0.35),width: (w * 0.3),height: (h * 0.3)))
             let circle1path = UIBezierPath(ovalInRect: CGRect(x: (w * 0.15),y: (h * 0.15),width: (w * 0.7),height: (h * 0.7)))
             let circle2path = UIBezierPath(ovalInRect: CGRect(x: (w * 0.25),y: (h * 0.25),width: (w * 0.5),height: (h * 0.5)))
-            color.set()
+            let circle3path = UIBezierPath(ovalInRect: CGRect(x: (w * 0.45),y: (h * 0.45),width: (w * 0.1),height: (h * 0.1)))
+            let colorRadar:UIColor = UIColor.whiteColor()
+            colorRadar.set()
+            circle3path.lineWidth = CGFloat(3.0)
+            circle2path.lineWidth = CGFloat(3.0)
+            circle1path.lineWidth = CGFloat(3.0)
+            circle0path.lineWidth = CGFloat(3.0)
             circle0path.stroke()
             circle1path.stroke()
             circle2path.stroke()
+            circle3path.stroke()
 //            centerpath.fill()
         case 2,3,4,5:
             // horizontal line

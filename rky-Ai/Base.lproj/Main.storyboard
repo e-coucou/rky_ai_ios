@@ -21,6 +21,24 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZvL-rG-K8E">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuD-H2-29T" customClass="actionButton" customModule="rky_Ai" customModuleProvider="target">
+                                <rect key="frame" x="320" y="384" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GCX-Rc-ywX"/>
+                                    <constraint firstAttribute="width" constant="50" id="YN6-wo-hDk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numButton">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="back_origine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iyn-CN-ZSg"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRm-8D-bOX" customClass="actionButton" customModule="rky_Ai" customModuleProvider="target">
                                 <rect key="frame" x="320" y="442" width="50" height="50"/>
                                 <constraints>
@@ -75,7 +93,7 @@
                                     <action selector="back_origine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o3h-ed-hfq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n59-aC-E49" customClass="actionButton" customModule="rky_Ai" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n59-aC-E49" customClass="actionButton" customModule="rky_Ai" customModuleProvider="target">
                                 <rect key="frame" x="1" y="586" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="2Gh-Au-vm9"/>
@@ -108,29 +126,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuD-H2-29T" customClass="actionButton" customModule="rky_Ai" customModuleProvider="target">
-                                <rect key="frame" x="320" y="384" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="GCX-Rc-ywX"/>
-                                    <constraint firstAttribute="width" constant="50" id="YN6-wo-hDk"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numButton">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="back_origine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iyn-CN-ZSg"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nct-uC-SRz">
+                                <rect key="frame" x="59" y="627" width="253" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.041960837860000003" green="0.056901336390000001" blue="0.95977176050000002" alpha="0.65857712769999999" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="n59-aC-E49" secondAttribute="bottom" constant="30" id="4Xj-YU-e18"/>
                             <constraint firstItem="FJO-QN-KZf" firstAttribute="top" secondItem="RRm-8D-bOX" secondAttribute="bottom" constant="5" id="5nk-aQ-nAr"/>
+                            <constraint firstItem="n59-aC-E49" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-10" id="6Uc-T8-XGf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nct-uC-SRz" secondAttribute="bottom" id="Fi4-Ra-MGJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QoC-NG-J9h" secondAttribute="trailing" constant="-5" id="Ka7-hp-Oh8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZvL-rG-K8E" secondAttribute="bottom" constant="-20" id="SLy-Tz-0dE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZvL-rG-K8E" secondAttribute="trailing" constant="-20" id="WIU-Oy-jzY"/>
@@ -140,14 +148,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="FJO-QN-KZf" secondAttribute="trailing" constant="-5" id="Ziq-fX-xgL"/>
                             <constraint firstItem="ZvL-rG-K8E" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-20" id="cYK-Lj-aIB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LuD-H2-29T" secondAttribute="trailing" constant="-5" id="dkx-jg-UiC"/>
+                            <constraint firstItem="nct-uC-SRz" firstAttribute="leading" secondItem="n59-aC-E49" secondAttribute="trailing" constant="10" id="gPZ-Io-jRc"/>
                             <constraint firstItem="QoC-NG-J9h" firstAttribute="top" secondItem="FJO-QN-KZf" secondAttribute="bottom" constant="5" id="lc1-7a-0Pn"/>
                             <constraint firstItem="42o-Kd-MFk" firstAttribute="top" secondItem="QoC-NG-J9h" secondAttribute="bottom" constant="5" id="qbZ-Ek-QN6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="42o-Kd-MFk" secondAttribute="trailing" constant="-5" id="rkb-XC-Nd7"/>
                             <constraint firstItem="RRm-8D-bOX" firstAttribute="top" secondItem="LuD-H2-29T" secondAttribute="bottom" constant="5" id="t5E-Rz-cB4"/>
+                            <constraint firstItem="42o-Kd-MFk" firstAttribute="leading" secondItem="nct-uC-SRz" secondAttribute="trailing" constant="10" id="tcc-Eh-u8e"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="info_text" destination="nct-uC-SRz" id="mf8-Ni-X2O"/>
                         <outlet property="maps" destination="ZvL-rG-K8E" id="q7o-IU-CUD"/>
                     </connections>
                 </viewController>

@@ -23,7 +23,8 @@ var loc_prev_longitude:CLLocationDegrees = 2.308216
 var loc_prev_latitude:CLLocationDegrees = 48.8338031
 var initialLocation = CLLocation(latitude: loc_latitude, longitude: loc_longitude)
 var regionRadius: CLLocationDistance = 3000
-var l_zone: CLLocationDistance = 350
+var l_zone: CLLocationDistance = 250
+var a_zone: CLLocationDistance = 400
 
 var first = true
 var startup = true
@@ -117,7 +118,7 @@ func update_userId(etat:String) {
     let request1: NSMutableURLRequest = NSMutableURLRequest(URL: url)
     
     request1.HTTPMethod = "PUT"
-    let paramString = "{\"latitude\":\""+String(loc_latitude)+"\", \"longitude\":\""+String(loc_longitude)+"\", \"etat\":\""+etat+"\",\"type\":\"user\"}"
+    let paramString = "{\"latitude\":\""+String(loc_latitude)+"\", \"longitude\":\""+String(loc_longitude)+"\", \"etat\":\""+etat+"\",\"type\":\"user\",\"profil\": {\"user\":\""+pseudo+"\"}}"
     print(paramString)
     print(baseURL)
     request1.HTTPBody = paramString.dataUsingEncoding(NSUTF8StringEncoding)
